@@ -4,6 +4,7 @@ RUN set -ex
 
 RUN apt-get update && \
     apt-get install -y \
+            git \
             build-essential \
             liblua5.1-0-dev \
             cmake \
@@ -43,4 +44,5 @@ RUN cd wxWidgets-3.0.2 && \
     make -j 4 && make install && cd -
 
 RUN git clone https://github.com/jamieforth/aruspix.git && \
+    cd aruspix && \
     git checkout ubuntu16.04-static-build
