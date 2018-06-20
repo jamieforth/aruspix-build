@@ -30,17 +30,17 @@ RUN tar zxf im-3.6.3_Sources.tar.gz && \
     rm *\.tar\.*
 
 RUN export LUA_INC=/usr/include/lua5.1 && \
-    cd im && make && \
+    cd im && make -j 4 && \
     mv lib/Linux*/* ./lib && \
     rmdir lib/Linux* && \
     cd - && \
     unset LUA_INC
 
-RUN cd Torch3 && make depend && make && cd -
+RUN cd Torch3 && make -j 4 depend && make -j 4 && cd -
 
 RUN cd wxWidgets-3.0.2 && \
     ./configure --disable-unicode --disable-shared && \
-    make && make install && cd -
+    make -j 4 && make install && cd -
 
 RUN git clone https://github.com/jamieforth/aruspix.git && \
     git checkout ubuntu16.04-static-build
