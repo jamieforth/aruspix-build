@@ -3,8 +3,8 @@
 This assumes you are running docker on the same host OS as the target
 build (ubuntu:16.04).
 
-Check the following libraries are installed. They probably are on a
-graphical desktop.
+Check the following runtime libraries are installed. They probably are
+on a graphical desktop.
 
 ``` bash
 sudo apt install libgtk2.0-0 libxml2 libuuid1 libsm6
