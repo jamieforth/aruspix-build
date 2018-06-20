@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# This script must be executed inside the build container with the bin/
+# directory mounted at /build/bin.
+# e.g.
+# docker run --rm -it -v `pwd`/bin:/build/bin aruspix sh bin/build-aruspix
+
+
+cd /build/bin
+
+mkdir build && cd build
+
+cmake /build/aruspix/linux/ -DwxDir=/usr/local/bin/ \
+      -DimDir=/build/im \
+      -DtorchDir=/build/Torch3 && \
+
+make -j 4
+
+cp aruspix /build/bin
+
+rm -rf /build/bin/build
+
