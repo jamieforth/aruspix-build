@@ -31,7 +31,7 @@ RUN tar zxf im-3.6.3_Sources.tar.gz && \
     rm *\.tar\.*
 
 RUN export LUA_INC=/usr/include/lua5.1 && \
-    cd im && make -j 4 && \
+    cd im && make && \
     mv lib/Linux*/* ./lib && \
     rmdir lib/Linux* && \
     cd - && \
