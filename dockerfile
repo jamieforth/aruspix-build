@@ -44,10 +44,3 @@ RUN cd wxWidgets-3.0.2 && \
 
 RUN git clone https://github.com/jamieforth/aruspix.git && \
     git checkout ubuntu16.04-static-build
-
-RUN mkdir -p aruspix/build && cd aruspix/build && \
-    cmake ../linux/ -DwxDir=/usr/local/bin/ \
-          -DimDir=/build/im \
-          -DtorchDir=/build/Torch3 && \
-    make && \
-    cd -
