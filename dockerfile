@@ -31,8 +31,8 @@ RUN tar zxf im-3.6.3_Sources.tar.gz && \
 
 RUN export LUA_INC=/usr/include/lua5.1 && \
     cd im && make && \
-    mv lib/Linux416_64/* ./lib && \
-    rmdir lib/Linux416_64 && \
+    mv lib/Linux*/* ./lib && \
+    rmdir lib/Linux* && \
     cd - && \
     unset LUA_INC
 
