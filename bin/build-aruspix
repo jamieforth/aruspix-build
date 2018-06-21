@@ -5,21 +5,44 @@
 # e.g.
 # docker run --rm -it -v `pwd`/bin:/build/bin aruspix sh bin/build-aruspix
 
+bindir=/build/bin
+guidir=$bindir/gui
+cmddir=$bindir/cmd
 
-cd /build/bin
+# Build GUI version
 
-mkdir build && cd build
+mkdir -p $guidir/build && cd $guidir/build
 
-cmake /build/aruspix/linux/ \
-      -DwxDir=/usr/local/bin/ \
+cmake /build/aruspix/linux \
+      -DwxDir=/usr/local/bin \
       -DimDir=/build/im \
-      -DtorchDir=/build/Torch3 && \
+      -DtorchDir=/build/Torch3 \
 
 make -j 4
 
-cp aruspix /build/bin
+# Copy binary and static files.
+cp aruspix $guidir
+cp -r /build/aruspix/data $guidir
+cp -r /build/aruspix/local $guidir
 
-cp -r /build/aruspix/data /build/bin
-cp -r /build/aruspix/local /build/bin
+# Clean up
+rm -rf $guidir/build
 
-rm -rf /build/bin/build
+# Build command-line version
+
+mkdir -p $cmddir/build && cd $cmddir/build
+
+cmake /build/aruspix/cmd-line \
+      -DwxDir=/usr/local/bin \
+      -DimDir=/build/im \
+      -DtorchDir=/build/Torch3 \
+
+make -j 4
+
+# Copy binary.
+cp aruspix-cmdline $cmddir
+cp -r /build/aruspix/cmd-line/models $cmddir
+cp -r /build/aruspix/cmd-line/sample $cmddir
+
+# Clean up
+rm -rf $cmddir/build
