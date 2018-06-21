@@ -1,0 +1,3 @@
+[submodule "src/aruspix"]
+	path = src/aruspix
+	url = https://github.com/jamieforth/aruspix.git
