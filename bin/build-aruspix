@@ -10,7 +10,8 @@ cd /build/bin
 
 mkdir build && cd build
 
-cmake /build/aruspix/linux/ -DwxDir=/usr/local/bin/ \
+cmake /build/aruspix/linux/ \
+      -DwxDir=/usr/local/bin/ \
       -DimDir=/build/im \
       -DtorchDir=/build/Torch3 && \
 
@@ -18,5 +19,7 @@ make -j 4
 
 cp aruspix /build/bin
 
-rm -rf /build/bin/build
+cp /build/src/aruspix/data /build/bin
+cp /build/src/aruspix/local /build/bin
 
+rm -rf /build/bin/build
