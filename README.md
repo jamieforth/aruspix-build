@@ -35,12 +35,12 @@ The Aruspix GUI binary should appear in directory called `gui`. All
 files will be owned by root.
 
 To install, copy the contents of `./data` and `./local` to
-`/usr/local/share/aruspix`, and the binary to `/usr/local/bin`.
+`/usr/local/share/Aruspix`, and the binary to `/usr/local/bin`.
 
 ``` bash
-sudo mkdir -p /usr/local/share/aruspix
-sudo cp -r ./data/* /usr/local/share/aruspix
-sudo cp -r ./local/* /usr/local/share/aruspix
+sudo mkdir -p /usr/local/share/Aruspix
+sudo cp -r ./data/* /usr/local/share/Aruspix
+sudo cp -r ./local/* /usr/local/share/Aruspix
 sudo cp ./aruspix /usr/local/bin
 ```
 
@@ -64,9 +64,9 @@ cd cmd
 
 To install, copy the binary to `/usr/local/bin`. If you followed the
 steps above to install the GUI version, the models are already
-installed at `/usr/local/share/aruspix/models`.
+installed at `/usr/local/share/Aruspix/models`.
 
 ``` bash
 sudo cp ./aruspix-cmdline /usr/local/bin
-aruspix-cmdline -m /usr/local/share/aruspix/models .sample/test.tiff
+aruspix-cmdline -m /usr/local/share/Aruspix/models .sample/test.tiff
 ```
