@@ -19,7 +19,7 @@ make -j 4
 
 cp aruspix /build/bin
 
-cp /build/src/aruspix/data /build/bin
-cp /build/src/aruspix/local /build/bin
+cp -r /build/aruspix/data /build/bin
+cp -r /build/aruspix/local /build/bin
 
 rm -rf /build/bin/build
