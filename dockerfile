@@ -42,7 +42,3 @@ RUN cd Torch3 && make -j 4 depend && make -j 4 && cd -
 RUN cd wxWidgets-3.0.2 && \
     ./configure --disable-unicode --disable-shared && \
     make -j 4 && make install && cd -
-
-RUN git clone https://github.com/jamieforth/aruspix.git && \
-    cd aruspix && \
-    git checkout ubuntu16.04-static-build
