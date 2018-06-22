@@ -29,7 +29,7 @@ docker run --rm -it \
        aruspix sh bin/build-aruspix
 ```
 
-## GUI
+### GUI
 
 The Aruspix GUI binary should appear in directory called `gui`. All
 files will be owned by root.
@@ -51,10 +51,24 @@ GUI version. They probably are on a graphical desktop.
 sudo apt install libgtk2.0-0 libxml2 libuuid1 libsm6
 ```
 
+### ML components
+
+The torch-related ML binaries should appear in a directory called `ml`.
+
+- `adapt`
+- `decoder`
+- `eval`
+- `init`
+- `ngram`
+- `trainer`
+
+To install, copy to `/usr/local/bin`.
+
 ### CMD
 
-The Aruspix GUI binary should appear in directory called `gui`. All
-files will be owned by root – you need to fix this to run the demo.
+The Aruspix command-line binary should appear in directory called
+`cmd`. All files will be owned by root – you need to fix this to run
+the demo.
 
 ``` bash
 sudo chown -R $USER:$USER ./bin/cmd

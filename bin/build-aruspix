@@ -7,11 +7,15 @@
 
 bindir=/build/bin
 guidir=$bindir/gui
+mldir=$bindir/ml
 cmddir=$bindir/cmd
 
-# Build GUI version
 
-mkdir -p $guidir/build && cd $guidir/build
+# -----------------
+# Build GUI version
+# -----------------
+
+mkdir -p $guidir/build && cd "$_"
 
 cmake /build/aruspix/linux \
       -DwxDir=/usr/local/bin \
@@ -28,9 +32,29 @@ cp -r /build/aruspix/local $guidir
 # Clean up
 rm -rf $guidir/build
 
-# Build command-line version
 
-mkdir -p $cmddir/build && cd $cmddir/build
+# --------------------
+# Build ml executables
+# --------------------
+
+mkdir -p $mldir/build && cd "$_"
+
+cmake /build/aruspix/linux-ml \
+      -DtorchDir=/build/Torch3 \
+
+make -j 4
+
+cp {adapt,decoder,eval,init,ngram,trainer} $mldir
+
+# Clean up
+rm -rf $mldir/build
+
+
+# --------------------------
+# Build command-line version
+# --------------------------
+
+mkdir -p $cmddir/build && cd "$_"
 
 cmake /build/aruspix/cmd-line \
       -DwxDir=/usr/local/bin \
