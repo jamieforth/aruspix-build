@@ -5,6 +5,8 @@
 # e.g.
 # docker run --rm -it -v `pwd`/bin:/build/bin aruspix sh bin/build-aruspix
 
+set -ex
+
 bindir=/build/bin
 guidir=$bindir/gui
 mldir=$bindir/ml
@@ -15,12 +17,11 @@ cmddir=$bindir/cmd
 # Build GUI version
 # -----------------
 
-mkdir -p $guidir/build && cd "$_"
+mkdir -p $guidir/build && cd $guidir/build
 
 cmake /build/aruspix/linux \
       -DwxDir=/usr/local/bin \
-      -DimDir=/build/im \
-      -DtorchDir=/build/Torch3 \
+      -DimDir=/build/im
 
 make -j 4
 
@@ -37,7 +38,7 @@ rm -rf $guidir/build
 # Build ml executables
 # --------------------
 
-mkdir -p $mldir/build && cd "$_"
+mkdir -p $mldir/build && cd $mldir/build
 
 cmake /build/aruspix/linux-ml \
       -DtorchDir=/build/Torch3 \
@@ -54,7 +55,7 @@ rm -rf $mldir/build
 # Build command-line version
 # --------------------------
 
-mkdir -p $cmddir/build && cd "$_"
+mkdir -p $cmddir/build && cd $cmddir/build
 
 cmake /build/aruspix/cmd-line \
       -DwxDir=/usr/local/bin \
