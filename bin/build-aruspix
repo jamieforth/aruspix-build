@@ -45,7 +45,7 @@ cmake /build/aruspix/linux-ml \
 
 make -j 4
 
-cp {adapt,decoder,eval,init,ngram,trainer} $mldir
+cp adapt decoder eval init ngram trainer $mldir
 
 # Clean up
 rm -rf $mldir/build
