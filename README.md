@@ -1,4 +1,4 @@
-# Reproducible build of Aruspix
+# Reproducible static build of Aruspix for Ubuntu 16.04
 
 This assumes you are running docker on the same host OS as the target
 build (ubuntu:16.04).
