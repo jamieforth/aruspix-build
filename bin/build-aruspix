@@ -22,8 +22,8 @@ mkdir -p $guidir/build && cd $guidir/build
 cmake /build/aruspix/linux \
       -DwxDir=/usr/local/bin \
       -DimDir=/build/im \
+      -DtorchDir=/build/Torch3
       
-
 make -j 4
 
 # Copy binary and static files.
