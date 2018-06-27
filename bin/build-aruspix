@@ -21,7 +21,8 @@ mkdir -p $guidir/build && cd $guidir/build
 
 cmake /build/aruspix/linux \
       -DwxDir=/usr/local/bin \
-      -DimDir=/build/im
+      -DimDir=/build/im \
+      
 
 make -j 4
 
@@ -60,7 +61,7 @@ mkdir -p $cmddir/build && cd $cmddir/build
 cmake /build/aruspix/cmd-line \
       -DwxDir=/usr/local/bin \
       -DimDir=/build/im \
-      -DtorchDir=/build/Torch3 \
+      -DtorchDir=/build/Torch3
 
 make -j 4
 
