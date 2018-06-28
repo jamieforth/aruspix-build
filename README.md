@@ -14,7 +14,7 @@ docker build -t aruspix .
 ## Initialise the Aruspix submodule
 
 ``` bash
-git submodule update --init
+git submodule update --init --recursive --remote
 ```
 
 ## Compile Aruspix inside the container
